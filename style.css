@@ -1,28 +1,27 @@
 /*Home Page*/
-#capsule {
-  width: 70%;
-  margin: auto;
-  border: solid 25px #6b1010;
-  border-radius: 30px;
-  background-color: black;
-}
 body {
   color: white;
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: black;
+  background-image: url(terrorpics/road.jpg);
+  background-size: cover;
+  margin: auto;
+  width: 70%;
+  text-decoration: none;
 }
 
-h1 {
-  font-size: 275%;
+.sitetitle {
+  font-size: 150%;
 }
 
-h2 {
+.navbar {
   word-spacing: 50px;
   width: 70%;
   margin: auto;
   border: solid 25px #6b1010;
   border-radius: 30px;
+  opacity: 0.75;
 }
 
 h3 {
@@ -32,6 +31,7 @@ h3 {
   justify-content: space-around;
   padding: 40px;
   background-color: #6b1010;
+  opacity: 0.75;
   color: white;
   border: 0;
   outline: none;
@@ -41,16 +41,21 @@ h3 {
   border-radius: 30px;
   align-items: center;
   text-align: center;
-  transition-duration: 0.4s;
 }
 
-p {
+.blurbtitle {
+  font-size: 25px;
+}
+
+.indexblurb {
   font-size: 20px;
+  text-align: left;
+  line-height: 25px;
 }
 
 footer {
   margin: auto;
-  justify-content: space-between;
+  text-justify: auto;
 }
 
 :visited {
