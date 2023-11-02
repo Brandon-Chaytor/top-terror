@@ -2,7 +2,6 @@
 body {
   color: white;
   text-align: center;
-  align-content: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: black;
   background-image: url(terrorpics/road.jpg);
@@ -19,34 +18,21 @@ body {
   font-size: 150%;
 }
 
-/*Navbar*/
-ul {
-  list-style-type: none;
-  display: inline-block;
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  contain: content;
+  align-items: center;
+  word-spacing: 50px;
+  width: 70%;
   margin: auto;
-  padding: 0;
-  overflow: hidden;
-  border: solid 20px #6b1010;
-  border-radius: 28px;
+  border: solid 25px #6b1010;
+  border-radius: 30px;
   opacity: 0.75;
 }
 
-li {
-  float: left;
-  display: inline;
-}
-
-li a {
-  flex: content;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/*Button*/
-.button {
+h3 {
   contain: content;
   width: 70%;
   font-size: 60px;
