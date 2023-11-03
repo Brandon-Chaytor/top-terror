@@ -6,10 +6,10 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: black;
   background-image: url(terrorpics/road.jpg);
-  background-size: cover;
-  background-position: center;
+  background-position: fixed !important;
   background-repeat: no-repeat;
-  height: 100%;
+  background-size: cover;
+  height: 110%;
   margin: auto;
   width: 70%;
   text-decoration: none;
@@ -43,26 +43,26 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  fit: auto;
 }
 
 /*Button*/
 .button {
   contain: content;
-  width: 70%;
-  font-size: 60px;
+  height: auto;
+  width: 220px;
+  font-size: 30px;
   font-weight: bold;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 40px;
+  padding: 20px;
   background-color: #6b1010;
   opacity: 0.75;
-  color: white;
   border: 0;
-  border-style: solid;
   outline: none;
   cursor: pointer;
   display: inline-block;
-  width: 380px;
   border-radius: 30px;
   align-items: center;
   text-align: center;
@@ -78,21 +78,64 @@ li a {
 
 .indexblurb {
   display: flex;
-  align-items: center;
+  padding: 0%;
+  border-radius: 10px;
   contain: content;
-  font-size: 20px;
+  justify-content: center;
+  font-size: 18px;
   text-align: left;
   line-height: 25px;
+  width: 60%;
+  margin: auto;
 }
 
 footer {
   margin: auto;
+  padding: 20px;
+  font-size: smaller;
   text-justify: auto;
   display: flex;
   justify-content: center;
+  padding: 18px;
 }
 
 :visited {
   text-decoration: none;
   color: white;
+}
+
+@media (max-width: 700px) {
+  .sitetitle,
+  .navbar,
+  .blurbtitle,
+  .button {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 620px) {
+  .navbar {
+    font-size: x-small;
+  }
+}
+
+@media (max-width: 530px) {
+  .navbar {
+    font-size: xx-small;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    font-size: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    font-size: 3px;
+  }
+  .indexblurb {
+    font-size: 12px;
+  }
 }
