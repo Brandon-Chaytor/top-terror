@@ -6,38 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <script type="text.js" src="script.js"></script>
+    <!-- Correct the script tag -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- Correct the link tag for Font Awesome -->
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
-      rel="stylesheet.css"
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
     />
   </head>
+
+  <body>
+    <div class="sitetitle">
+      <h1>TopTerror</h1>
+    </div>
+
+    <!--Navigation Bar-->
+    <h2>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./topterror.html">TopTerror</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </h2>
+
+    <!--Main Button for Project-->
+    <div class="button">
+      <h3>Get Terrified!</h3>
+    </div>
+
+    <!--Additional Horizontal Navbar-->
+    <div class="additional-navbar">
+      <button class="navbar-button" onClick="displayData()">
+        <a href="#">Popular</a>
+      </button>
+      <button class="navbar-button"><a href="#">Top Rated</a></button>
+      <button class="navbar-button"><a href="#">Decade</a></button>
+    </div>
+
+    <!--Movie Display Grid-->
+    <div class="movie-container"></div>
+    <div class="movie-image"></div>
+
+    <footer>Website designed by Brandon Chaytor</footer>
+
+    <!-- Move the script tag to the end of the body -->
+    <script src="script.js"></script>
+  </body>
 </html>
-
-<body>
-  <script src="script.js"></script>
-
-  <div class="sitetitle">
-    <h1>TopTerror</h1>
-  </div>
-
-  <!--Navigation Bar-->
-  <h2>
-    <ul>
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./topterror.html">TopTerror</a></li>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-    </ul>
-  </h2>
-
-  <!--Main Button for Project-->
-  <div class="button" onClick="displayData()">
-    <h3>Get Terrified!</h3>
-  </div>
-
-  <div class="movie-container"></div>
-
-  <footer>Website designed by Brandon Chaytor</footer>
-</body>

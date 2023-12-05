@@ -65,3 +65,4 @@ async function displayData() {
     movieContainer.appendChild(movieCard);
   });
 }
+// END OF ORIGINAL CODE
