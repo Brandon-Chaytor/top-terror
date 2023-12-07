@@ -12,14 +12,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"
     />
   </head>
-</html>
 
-<body>
-  <div class="sitetitle">
-    <h1>TopTerror</h1>
-  </div>
+  <body>
+    <div class="sitetitle">
+      <h1>TopTerror</h1>
+    </div>
 
-  <!--Navigation Bar-->
+    <!-- Navigation Bar -->
     <h2>
       <ul>
         <li><a href="./index.html">Home</a></li>
@@ -28,23 +27,46 @@
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </h2>
-  </div>
 
-<!--Main Button for Project-->
-<div class="button">
-  <h3>Hello Stranger</h3>
-</div>
+    <!-- Main Button for Project -->
+    <div class="button" onclick="showLinks()">
+      <h3>Hello Stranger</h3>
+    </div>
 
-  <div class="blurbtitle">
-    <h4>What is a man but a miserable pile of secrets!</h4>
-  </div>
-  
-  <div class="indexblurb">
-    <p>
-      For all things spooky, coffee, live-music, technology, or food related
-      reachout via email or refer to my socials to get in touch... If you dare.
-    </p>
-  </div>
+    <!-- Links (initially hidden) -->
+    <div class="links" id="linksContainer" style="display: none">
+      <a href="https://github.com/Brandon-Chaytor" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="mailto:chaytorbrandon@gmail.com">
+        <i class="far fa-envelope"></i> Email
+      </a>
+      <a
+        href="https://www.linkedin.com/in/brandon-chaytor-b9a198127/"
+        target="_blank"
+      >
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
 
-  <footer>Website designed by Brandon Chaytor</footer>
-</body>
+    <div class="blurbtitle">
+      <h4>What is a man but a miserable pile of secrets!</h4>
+    </div>
+
+    <div class="indexblurb">
+      <p>
+        For all things spooky, coffee, live-music, technology, or food related,
+        reach out via email or refer to my socials to get in touch... If you
+        dare.
+      </p>
+    </div>
+
+    <footer>Website designed by Brandon Chaytor</footer>
+
+    <script>
+      function showLinks() {
+        document.getElementById("linksContainer").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>

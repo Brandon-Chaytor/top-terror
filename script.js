@@ -7,18 +7,6 @@ const options = {
   },
 };
 
-//fetch("https://api.themoviedb.org/3/authentication", options)
-//.then((response) => response.json())
-//.then((response) => console.log(response))
-//.catch((err) => console.error(err));
-
-//fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", options)
-//.then((response) => response.json())
-//.then((response) => console.log(response))
-//.catch((err) => console.error(err));
-
-//const message = "Hello, Console!";
-
 async function getHorrorMovies() {
   try {
     const response = await fetch(
@@ -65,4 +53,5 @@ async function displayData() {
     movieContainer.appendChild(movieCard);
   });
 }
+
 // END OF ORIGINAL CODE
