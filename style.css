@@ -9,10 +9,11 @@ body {
   background-position: fixed !important;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 110%;
+  height: 100vh;
   margin: auto;
   width: 70%;
   text-decoration: none;
+  overflow: auto;
 }
 
 .sitetitle {

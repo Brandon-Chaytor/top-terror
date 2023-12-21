@@ -1,4 +1,4 @@
-async function queryAPI(page) {
+async function queryAPI(page = 1) {
   const options = {
     method: "GET",
     headers: {
@@ -41,38 +41,6 @@ async function getHorrorMovies() {
   }
 }
 
-try {
-  console.log(data);
-  const allMovies = data.results;
-  console.log(allMovies.length);
-  const horrorMovies = allMovies.filter((movie) => {
-    return movie.genre_ids.includes(27); // includes or may include any movies with id 27,127, 1127 etc.. fix
-  });
-  console.log(horrorMovies.length);
-
-  if (horrorMovies.length < 5) {
-    // Declare the function as async
-    const fetchData = async () => {
-      try {
-        const additionalData = await queryAPI(2);
-        console.log(additionalData);
-        // Concatenate arrays and update horrorMovies
-        horrorMovies = horrorMovies.concat(additionalData.results);
-        console.log(horrorMovies.length);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    // Call the async function
-    await fetchData();
-  }
-
-  return horrorMovies;
-} catch (err) {
-  console.log(err);
-}
-
 async function displayData() {
   const data = await getHorrorMovies();
   const movieContainer = document.querySelector(".movie-container");
@@ -104,16 +72,41 @@ async function displayData() {
     movieContainer.appendChild(movieCard);
 
     const movieSummary = document.getElementById("movieSummary");
-    movieSummary.innerHTML = `<h3>Summary: ${movie.overview}</h3>`;
+    if (movieSummary != null) {
+      movieSummary.innerHTML = `<h3>Summary: ${movie.overview}</h3>`;
+    }
   });
 }
 
-// End Of Original Code
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id");
-const movieDetails = await fetch(
-  `https://api.themoviedb.org/3/movie/${id}?api_key=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZmFiZGRiOTA3NmEyZjU2NTYzMDc2MzA3ZWEwMzMxYSIsInN1YiI6IjY1M2JiN2NiNTY0ZWM3MDBlNWZhMjVhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bxLaHmqhfEn4SkKpCadyJO-Dsr0JTKUq9tWIWUBZaqI`
-);
-const movieDetailsData = await movieDetails.json();
-const movieSummary = document.getElementById("movieSummary");
-movieSummary.innerHTML = `<h2>Summary: ${movieDetailsData.overview}</h2><h3>IMDB Rating:</h3><h3>Budget: ${movieDetailsData.budget}</h3>`;
+async function getMovieDetailsById(id) {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZmFiZGRiOTA3NmEyZjU2NTYzMDc2MzA3ZWEwMzMxYSIsInN1YiI6IjY1M2JiN2NiNTY0ZWM3MDBlNWZhMjVhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.bxLaHmqhfEn4SkKpCadyJO-Dsr0JTKUq9tWIWUBZaqI",
+    },
+  };
+
+  const movieDetails = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}`,
+    options
+  );
+  const movieDetailsData = await movieDetails.json();
+  console.log(movieDetailsData);
+  const movieSummary = document.getElementById("movieSummary");
+  movieSummary.innerHTML = `<h2>${movieDetailsData.title}</h2>
+  <h2>${movieDetailsData.tagline}</h2> 
+  <h3> Rating: ${movieDetailsData.vote_average}</h3> 
+  <h3>Budget: ${movieDetailsData.budget}</h3>
+  <h3>Synopsis: ${movieDetailsData.overview}</h3>
+  <img src="https://image.tmdb.org/t/p/w500/${movieDetailsData.poster_path}" alt="${movieDetailsData.title}" width="400">
+  `;
+}
+window.onload = async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+  if (id != null) {
+    await getMovieDetailsById(id);
+  }
+};
