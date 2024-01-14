@@ -1,4 +1,4 @@
-async function queryPopularMovies(page = 1) {
+async function queryUpcomingMovies(page = 1) {
   const options = {
     method: "GET",
     headers: {
@@ -8,7 +8,7 @@ async function queryPopularMovies(page = 1) {
     },
   };
   const response = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
+    `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}`,
     options
   );
   const data = await response.json();
@@ -28,7 +28,7 @@ async function getHorrorMovies() {
     let horrorMovies = [];
 
     while (horrorMovies.length < 5 && page <= 10) {
-      const data = await queryPopularMovies(page);
+      const data = await queryUpcomingMovies(page);
       const pageHorrorMovies = await filterHorrorMovies(data.results);
       horrorMovies.push(...pageHorrorMovies);
       page++;
@@ -41,7 +41,7 @@ async function getHorrorMovies() {
   }
 }
 
-async function displayPopularMovies() {
+async function displayUpcomingMovies() {
   const data = await getHorrorMovies();
   const movieContainer = document.querySelector(".movie-container");
   movieContainer.innerHTML = "";
@@ -96,12 +96,12 @@ async function getMovieDetailsById(id) {
   console.log(movieDetailsData);
   const movieSummary = document.getElementById("movieSummary");
   movieSummary.innerHTML = `<h2>${movieDetailsData.title}</h2>
-  <h2>${movieDetailsData.tagline}</h2> 
-  <h3> Rating: ${movieDetailsData.vote_average}</h3> 
-  <h3>Budget: ${movieDetailsData.budget}</h3>
-  <h3>Synopsis: ${movieDetailsData.overview}</h3>
-  <img src="https://image.tmdb.org/t/p/w500/${movieDetailsData.poster_path}" alt="${movieDetailsData.title}" width="400">
-  `;
+    <h2>${movieDetailsData.tagline}</h2> 
+    <h3> Rating: ${movieDetailsData.vote_average}</h3> 
+    <h3>Budget: ${movieDetailsData.budget}</h3>
+    <h3>Synopsis: ${movieDetailsData.overview}</h3>
+    <img src="https://image.tmdb.org/t/p/w500/${movieDetailsData.poster_path}" alt="${movieDetailsData.title}" width="400">
+    `;
 }
 window.onload = async () => {
   const urlParams = new URLSearchParams(window.location.search);

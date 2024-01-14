@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <script type="text/javascript" src="script.js"></script>
-
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
       rel="stylesheet"
@@ -20,7 +18,7 @@
       <h1>TopTerror</h1>
     </div>
 
-    <!--Navigation Bar-->
+    <!-- Navigation Bar -->
     <h2>
       <ul>
         <li><a href="./index.html">Home</a></li>
@@ -30,27 +28,34 @@
       </ul>
     </h2>
 
-    <!--Main Button for Project-->
+    <!-- Main Button -->
     <div class="button">
       <h3>Get Terrified!</h3>
     </div>
 
-    <!--Additional Horizontal Navbar-->
+    <!-- Additional Horizontal Navbar -->
     <div class="additional-navbar">
-      <button class="navbar-button" onClick="displayData()">
-        <a href="#">Popular</a>
+      <button class="navbar-button" onclick="displayPopularMovies()">
+        Popular
       </button>
-      <button class="navbar-button"><a href="#">Top Rated</a></button>
-      <button class="navbar-button"><a href="#">Decade</a></button>
+
+      <button class="navbar-button" onclick="displayTopRatedMovies()">
+        Top Rated
+      </button>
+
+      <button class="navbar-button" onclick="displayUpcomingMovies()">
+        Upcoming
+      </button>
     </div>
 
-    <!--Movie Display Grid-->
+    <!-- Movie Display Grid -->
     <div class="movie-container"></div>
     <div class="movie-image"></div>
 
     <footer>Website designed by Brandon Chaytor</footer>
 
-    <!-- Move the script tag to the end of the body -->
     <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
   </body>
 </html>
